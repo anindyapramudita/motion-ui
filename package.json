@@ -1,7 +1,7 @@
 {
   "name": "motion-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -15,7 +15,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "semantic-release": "semantic-release --branches main"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -50,7 +51,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "semantic-release": "^23.0.0",
+    "semantic-release": "^24.0.0",
     "storybook": "^8.1.5",
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
@@ -67,5 +68,9 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anindyapramudita/motion-ui.git"
   }
 }
