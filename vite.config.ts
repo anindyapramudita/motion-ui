@@ -12,6 +12,7 @@ export default defineConfig({
       name: "Motion UI",
       fileName: (format) => `index.${format}.js`,
     },
+    chunkSizeWarningLimit: 1600,
     rollupOptions: {
       external: [
         "react",
@@ -24,6 +25,15 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
         },
       },
     },
