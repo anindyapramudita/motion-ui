@@ -23,6 +23,7 @@
     "paths": {
       "@/*": ["./*"]
     },
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["lib/**/*", "./jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
