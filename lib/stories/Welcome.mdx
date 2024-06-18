@@ -1,0 +1,115 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import Github from "../assets/github.svg";
+import Linkedin from "../assets/linkedin.svg";
+import Gmail from "../assets/gmail.svg";
+
+export const RightArrow = () => (
+  <svg
+    viewBox="0 0 14 14"
+    width="8px"
+    height="14px"
+    style={{
+      marginLeft: "4px",
+      display: "inline-block",
+      shapeRendering: "inherit",
+      verticalAlign: "middle",
+      fill: "currentColor",
+      "path fill": "currentColor",
+    }}
+  >
+    <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+  </svg>
+);
+
+<Meta title="Welcome" />
+
+# 🙋🏻‍♀️ Welcome to simple-motion-ui
+
+Thank you for checking out my component library! My name is Dita, and I'm a Frontend Developer based in Spain. Have a look around to my wonderous world of motion UI! 🌎
+
+## 🚌 About Simple-motion-ui
+
+Simple-motion-ui is a collection of reusable components that are designed to be simple, intuitive, and customizable. Whether you are building a small project or a large-scale application, Simple-motion-ui provides the building blocks you need to create a consistent and visually appealing user experience with a bit of motion pizzazz. ✨
+
+## 🔑 Key Features
+
+- **Easy to Use**: Simple and intuitive API that makes it easy to get started.
+- **Customizable**: Highly customizable components to match your design requirements.
+- **Performance**: Optimized for performance to ensure a smooth user experience.
+- **Accessibility**: Built with accessibility in mind to ensure everyone can use your application.
+
+## 📝 Getting Started
+
+To get started with Simple-motion-ui, install the library using npm or yarn:
+
+```bash
+npm install simple-motion-ui
+# or
+yarn add simple-motion-ui
+```
+
+## 📱 Connect
+
+I would love to connect with everyone, whether you have feedbacks or if you want to collaborate, reach out to me through any of these places:
+
+<div className="sb-section sb-socials">
+    <div className="sb-section-item">
+        <img src={Github} alt="Github logo" className="sb-explore-image"/>
+        Visit me on Github and check out my other projects.
+        
+        <a
+        href="https://github.com/anindyapramudita"
+        target="_blank"
+        >Go to my GitHub page<RightArrow /></a>
+    </div>
+    <div className="sb-section-item">
+      <img src={Linkedin} alt="LinkedIn logo" className="sb-explore-image"/>
+      Reach out to me through LinkedIn.
+
+      <a
+        href="https://Linkedin.com/in/anindyapramudita"
+        target="_blank"
+      >Go to my LinkedIn page<RightArrow /></a>
+    </div>
+
+    <div className="sb-section-item">
+      <img src={Gmail} alt="Gmail logo" className="sb-explore-image"/>
+      Reach me out through my email.
+
+      <a
+        href="mailto:anindyapramudita2111@gmail.com"
+        target="_blank"
+      >Write to me<RightArrow /></a>
+    </div>
+
+</div>
+
+<style>
+  {`
+.sb-section {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+.sb-section-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px;
+    flex: 1;
+  }
+
+.sb-explore-image {
+    max-height: 32px;
+    align-self: flex-start;
+  }
+
+  .sb-section a:not(h1 a, h2 a, h3 a) {
+    font-size: 14px;
+  }
+
+`}
+</style>
