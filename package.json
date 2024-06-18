@@ -15,6 +15,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-complete-storybook": "tsc && vite build && storybook build",
     "serve-storybook": "serve storybook-static",
     "test": "jest --coverage",
     "semantic-release": "semantic-release --branches main"
