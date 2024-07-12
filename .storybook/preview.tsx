@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/react';
+import React from 'react';
+import { StyleTag } from '../lib';
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +11,14 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div>
+        <StyleTag />
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default preview;
