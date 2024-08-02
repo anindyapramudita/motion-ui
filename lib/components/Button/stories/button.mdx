@@ -1,0 +1,31 @@
+import { Canvas, Meta, Controls, Unstyled } from '@storybook/blocks';
+import { Button } from '..';
+import * as ButtonStories from './button.stories';
+ 
+<Meta of={ButtonStories} />
+ 
+# Button
+
+A button is a box or text which is used to communicate a call to action and to trigger the user action when clicked.
+ 
+{/* <Canvas of={ButtonStories.ContainedButton} /> */}
+
+## Variants
+
+The button has three available variants, which are: Contained (default), Outlined, and Ghost.
+
+<Unstyled>
+<div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', padding: 8, border: '1px solid grey'}}>
+<Button variant="contained" color="primary">Button</Button>
+<Button variant="contained" color="secondary">Button</Button>
+</div>
+</Unstyled>
+
+
+```jsx
+<Button>
+halo
+</Button>
+```
+
+<Controls/>

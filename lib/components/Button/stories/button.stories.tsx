@@ -4,20 +4,20 @@ import { Button } from '..';
 import { SendIcon } from './send-icon';
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   argTypes: {
     variant: {
       description: 'Variant of the button',
       control: 'radio',
-      options: ['text', 'contained', 'outlined'],
+      options: ['ghost', 'contained', 'outlined'],
       table: {
         type: {
-          summary: 'text | contained | outlined',
+          summary: 'ghost | contained | outlined',
         },
       },
     },
@@ -31,7 +31,7 @@ const meta = {
         },
       },
     },
-    startIcon: {
+    append: {
       description:
         'Icon that will be rendered before the text rendered in the button',
       control: 'object',
@@ -41,27 +41,36 @@ const meta = {
         },
       },
     },
-    endIcon: {
-      description:
-        'Icon that will be rendered after the text rendered in the button',
-      control: 'object',
-      table: {
-        type: {
-          summary: 'ReactNode',
-        },
-      },
-    },
-    loadingPosition: {
-      description: 'Position of the loading icon in the button',
+    appendPosition: {
+      description: 'Position of the icon in the button',
       control: 'radio',
-      options: ['start', 'center', 'end'],
+      options: ['start', 'end'],
       table: {
-        category: 'Loading State',
         type: {
-          summary: 'start | center | end',
+          summary: 'start | end',
         },
       },
     },
+    // startIcon: {
+    //   description:
+    //     'Icon that will be rendered before the text rendered in the button',
+    //   control: 'object',
+    //   table: {
+    //     type: {
+    //       summary: 'ReactNode',
+    //     },
+    //   },
+    // },
+    // endIcon: {
+    //   description:
+    //     'Icon that will be rendered after the text rendered in the button',
+    //   control: 'object',
+    //   table: {
+    //     type: {
+    //       summary: 'ReactNode',
+    //     },
+    //   },
+    // },
     isLoading: {
       description: 'Is the button in loading state',
       control: 'boolean',
@@ -132,27 +141,37 @@ export const ButtonWithIcon: Story = {
     children: 'End Icon',
     color: 'primary',
     variant: 'contained',
-    endIcon: <SendIcon />,
+    append: <SendIcon />,
+    appendPosition: 'start',
   },
 };
 
-export const LoadingButtonWithIcon: Story = {
+export const ButtonWithAsChild: Story = {
   args: {
-    children: 'End Loading',
-    color: 'secondary',
-    variant: 'outlined',
-    endIcon: <SendIcon color="#F082AC" />,
-    isLoading: true,
-    loadingPosition: 'end',
+    asChild: true,
+    children: <a>This is actually a link</a>,
+    color: 'primary',
+    variant: 'contained',
   },
 };
 
-export const CenterLoadingButton: Story = {
-  args: {
-    children: 'Center Loading',
-    color: 'secondary',
-    variant: 'outlined',
-    isLoading: true,
-    loadingPosition: 'center',
-  },
-};
+// export const LoadingButtonWithIcon: Story = {
+//   args: {
+//     children: 'End Loading',
+//     color: 'secondary',
+//     variant: 'outlined',
+//     endIcon: <SendIcon color="#F082AC" />,
+//     isLoading: true,
+//     loadingPosition: 'end',
+//   },
+// };
+
+// export const CenterLoadingButton: Story = {
+//   args: {
+//     children: 'Center Loading',
+//     color: 'secondary',
+//     variant: 'outlined',
+//     isLoading: true,
+//     loadingPosition: 'center',
+//   },
+// };

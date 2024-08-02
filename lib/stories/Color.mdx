@@ -1,0 +1,180 @@
+import { Canvas, Meta, Controls, Unstyled } from '@storybook/blocks';
+ 
+<Meta title="Foundation/Colors" />
+ 
+# Colors 🎨
+
+These are the variety of colors that we set as the default brand color of the library. You can customize them, but if you want to use the default colors, you can use this as the reference.
+
+## Brand Colors
+
+We separate the two main color swatches into two categories: primary, and secondary. We also have contrast text color for each representative color category, to handle the accessibility if the color is used within contrast with a text.
+
+<Unstyled>
+  <div style={{display: 'flex', gap: 48}}>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Primary</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-primary-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-primary-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-primary-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-primary-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-primary-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-primary-light</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-primary-lighter)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-primary-lighter</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-primary-lightest)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-primary-lightest</p>
+      </div>
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Secondary</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-secondary-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-secondary-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-secondary-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-secondary-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-secondary-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-secondary-light</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-secondary-lighter)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-secondary-lighter</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-secondary-lightest)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-secondary-lightest</p>
+      </div>
+    </div>
+  </div>
+</Unstyled>
+
+## Status Colors
+
+In case you'd like to style an element depending on the status, we also have a selection of color to use in this condition.
+
+<Unstyled>
+  <div style={{display: 'flex', gap: 48}}>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Success</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-success-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-success-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-success-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-success-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-success-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-success-light</p>
+      </div>
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Error</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-error-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-error-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-error-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-error-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-error-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-error-light</p>
+      </div>
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Warning</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-warning-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-warning-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-warning-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-warning-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-warning-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-warning-light</p>
+      </div>
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Info</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-info-dark)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-info-dark</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-info-main)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-info-main</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-info-light)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-info-light</p>
+      </div>
+    </div>
+  </div>
+</Unstyled>
+
+
+## Greyscale
+
+We also have a color swatch of the greyscale, starting from 100 to 900 as shown below.
+
+<Unstyled>
+  <div>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      <p style={{font: 'var(--body-medium-regular)'}}>Greyscale</p>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-100)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-100</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-200)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-200</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-300)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-300</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-400)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-400</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-500)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-500</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-600)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-600</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-700)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-700</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-800)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-800</p>
+      </div>
+      <div style={{display: 'flex', gap: 12, alignItems: 'center'}}>
+        <div style={{width: 48, height: 24, backgroundColor: 'var(--palette-greyscale-900)'}}/>
+        <p style={{font: 'var(--caption-medium-regular)', color: 'var(--palette-greyscale-900)'}}>--palette-greyscale-900</p>
+      </div>
+    </div>
+  </div>
+</Unstyled>

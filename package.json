@@ -1,5 +1,5 @@
 {
-  "name": "simple-motion-ui",
+  "name": "tile-ui",
   "private": false,
   "version": "0.0.0-development",
   "type": "module",
@@ -78,5 +78,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anindyapramudita/motion-ui.git"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "clsx": "^2.1.1"
   }
 }
