@@ -1,4 +1,4 @@
-import { removeKeyFromObject } from '@/utils/remove-key-from-object';
+import { removeKeyFromObject } from '../utils/remove-key-from-object';
 import { defaultTheme } from './default-theme';
 import { jsonToCssVariables } from './json-to-css-variables';
 import { Variables } from './types';
