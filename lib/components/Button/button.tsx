@@ -11,6 +11,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 
 export type ButtonProps = {
   variant?: 'ghost' | 'contained' | 'outlined';
+  size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary';
   append?: ReactNode;
   appendPosition?: 'start' | 'end';
@@ -19,14 +20,19 @@ export type ButtonProps = {
   asChild?: boolean;
 } & ComponentPropsWithRef<'button'>;
 
-const AppendWrapper = ({ children }: { children: ReactNode }) => (
-  <span>{children}</span>
-);
+const AppendWrapper = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => <span className={className}>{children}</span>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
+      size = 'medium',
       variant = 'contained',
       color = 'primary',
       children,
@@ -43,6 +49,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonClassName = clsx(
       styles.button,
       styles[variant],
+      styles[size],
       styles[color],
       {
         [styles.isLoading]: isLoading,
@@ -51,7 +58,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className
     );
 
+    const appendWrapperClassName = clsx(styles.appendWrapper, styles[size]);
+
     const Component = asChild ? Slot : 'button';
+
+    const renderAppendContent = (position: 'start' | 'end') => {
+      const hasAppend = append && appendPosition === position;
+
+      if (isLoading && hasAppend) {
+        return (
+          <span className={styles.loadingWrapper}>
+            <LoadingIcon />
+          </span>
+        );
+      }
+
+      if (hasAppend) {
+        return (
+          <AppendWrapperComponent className={appendWrapperClassName}>
+            {append}
+          </AppendWrapperComponent>
+        );
+      }
+      return null;
+    };
 
     return (
       <Component
@@ -60,17 +90,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         {...rest}
       >
-        {isLoading && appendPosition === 'start' ? (
-          <LoadingIcon />
-        ) : append && appendPosition === 'start' ? (
-          <AppendWrapperComponent>{append}</AppendWrapperComponent>
-        ) : null}
-        <Slottable>{children}</Slottable>
-        {isLoading && appendPosition === 'end' ? (
-          <LoadingIcon />
-        ) : append && appendPosition === 'end' ? (
-          <AppendWrapperComponent>{append}</AppendWrapperComponent>
-        ) : null}
+        {renderAppendContent('start')}
+        <Slottable>
+          {isLoading ? (
+            <span className={styles.buttonContent}>{children}</span>
+          ) : (
+            children
+          )}
+        </Slottable>
+        {renderAppendContent('end')}
       </Component>
     );
   }

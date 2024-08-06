@@ -21,6 +21,16 @@ const meta = {
         },
       },
     },
+    size: {
+      description: 'Size of the button',
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
+      table: {
+        type: {
+          summary: 'small | medium | large',
+        },
+      },
+    },
     color: {
       description: 'Color of the button',
       control: 'radio',
@@ -51,26 +61,6 @@ const meta = {
         },
       },
     },
-    // startIcon: {
-    //   description:
-    //     'Icon that will be rendered before the text rendered in the button',
-    //   control: 'object',
-    //   table: {
-    //     type: {
-    //       summary: 'ReactNode',
-    //     },
-    //   },
-    // },
-    // endIcon: {
-    //   description:
-    //     'Icon that will be rendered after the text rendered in the button',
-    //   control: 'object',
-    //   table: {
-    //     type: {
-    //       summary: 'ReactNode',
-    //     },
-    //   },
-    // },
     isLoading: {
       description: 'Is the button in loading state',
       control: 'boolean',
@@ -154,24 +144,3 @@ export const ButtonWithAsChild: Story = {
     variant: 'contained',
   },
 };
-
-// export const LoadingButtonWithIcon: Story = {
-//   args: {
-//     children: 'End Loading',
-//     color: 'secondary',
-//     variant: 'outlined',
-//     endIcon: <SendIcon color="#F082AC" />,
-//     isLoading: true,
-//     loadingPosition: 'end',
-//   },
-// };
-
-// export const CenterLoadingButton: Story = {
-//   args: {
-//     children: 'Center Loading',
-//     color: 'secondary',
-//     variant: 'outlined',
-//     isLoading: true,
-//     loadingPosition: 'center',
-//   },
-// };
