@@ -1,24 +1,9 @@
-import {
-  ComponentPropsWithRef,
-  ElementType,
-  ReactNode,
-  forwardRef,
-} from 'react';
+import { ReactNode, forwardRef } from 'react';
 import styles from './button.module.css';
 import { LoadingIcon } from '../LoadingIcon';
 import clsx from 'clsx';
 import { Slot, Slottable } from '@radix-ui/react-slot';
-
-export type ButtonProps = {
-  variant?: 'ghost' | 'contained' | 'outlined';
-  size?: 'small' | 'medium' | 'large';
-  color?: 'primary' | 'secondary';
-  append?: ReactNode;
-  appendPosition?: 'start' | 'end';
-  appendWrapper?: ElementType;
-  isLoading?: boolean;
-  asChild?: boolean;
-} & ComponentPropsWithRef<'button'>;
+import { ButtonProps } from './types';
 
 const AppendWrapper = ({
   children,
@@ -40,6 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       appendPosition = 'start',
       appendWrapper: AppendWrapperComponent = AppendWrapper,
       isLoading,
+      loadingIcon: LoadingIconComponent = LoadingIcon,
       asChild = false,
       disabled,
       ...rest
@@ -68,7 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       if (isLoading && hasAppend) {
         return (
           <span className={styles.loadingWrapper}>
-            <LoadingIcon />
+            <LoadingIconComponent />
           </span>
         );
       }
