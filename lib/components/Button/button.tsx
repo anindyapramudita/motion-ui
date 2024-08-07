@@ -1,81 +1,91 @@
-import { ButtonHTMLAttributes, ReactNode, forwardRef } from 'react';
-import styles from './styles.module.css';
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'text' | 'contained' | 'outlined';
-  color?: 'primary' | 'secondary';
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
-  isLoading?: boolean;
-  loadingPosition?: 'start' | 'center' | 'end';
-}
+import { ReactNode, forwardRef } from 'react';
+import styles from './button.module.css';
+import { LoadingIcon } from '../LoadingIcon';
+import clsx from 'clsx';
+import { Slot, Slottable } from '@radix-ui/react-slot';
+import { ButtonProps } from './types';
+
+const AppendWrapper = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => <span className={className}>{children}</span>;
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    className,
-    variant = 'contained',
-    color = 'primary',
-    children,
-    startIcon,
-    endIcon,
-    isLoading,
-    loadingPosition = 'start',
-    ...restProps
-  }) => {
-    const variantClass = styles[variant];
-    const colorClass = styles[color];
-    const loadingClass =
-      isLoading && loadingPosition === 'center' ? styles.loadingButton : '';
-
-    const buttonClassName = [
-      styles.button,
-      variantClass,
-      colorClass,
+  (
+    {
       className,
-      loadingClass,
-    ].join(' ');
+      size = 'medium',
+      variant = 'contained',
+      color = 'primary',
+      children,
+      append,
+      appendPosition = 'start',
+      appendWrapper: AppendWrapperComponent = AppendWrapper,
+      isLoading,
+      loadingIcon: LoadingIconComponent = LoadingIcon,
+      asChild = false,
+      disabled,
+      ...rest
+    },
+    ref
+  ) => {
+    const buttonClassName = clsx(
+      styles.button,
+      styles[variant],
+      styles[size],
+      styles[color],
+      {
+        [styles.isLoading]: isLoading,
+        [styles.withAppend]: append,
+      },
+      className
+    );
 
-    const loadingCenterClassName =
-      loadingPosition === 'center' ? styles.loadingCenter : '';
-    const loadingClassName = [
-      styles.loadIconContainer,
-      variantClass,
-      loadingCenterClassName,
-    ].join(' ');
+    const appendWrapperClassName = clsx(styles.appendWrapper, styles[size]);
 
-    const iconClassName = isLoading
-      ? loadingPosition === 'center'
-        ? styles.iconContainerHidden
-        : styles.iconContainerNone
-      : styles.iconContainer;
+    const Component = asChild ? Slot : 'button';
+
+    const renderAppendContent = (position: 'start' | 'end') => {
+      const hasAppend = append && appendPosition === position;
+
+      if (isLoading && hasAppend) {
+        return (
+          <span className={styles.loadingWrapper}>
+            <LoadingIconComponent />
+          </span>
+        );
+      }
+
+      if (hasAppend) {
+        return (
+          <AppendWrapperComponent className={appendWrapperClassName}>
+            {append}
+          </AppendWrapperComponent>
+        );
+      }
+      return null;
+    };
 
     return (
-      <button
+      <Component
         className={buttonClassName}
-        {...restProps}
-        disabled={restProps.disabled || isLoading}
-        data-testid="button-component"
+        ref={ref}
+        disabled={disabled || isLoading}
+        {...rest}
       >
-        {isLoading && loadingPosition === 'start' && (
-          <LoadingIcon loadingClassName={loadingClassName} />
-        )}
-        {!!startIcon && <div className={iconClassName}>{startIcon}</div>}
-        {children}
-        {!!endIcon && <div className={iconClassName}>{endIcon}</div>}
-        {isLoading &&
-          (loadingPosition === 'end' || loadingPosition === 'center') && (
-            <LoadingIcon loadingClassName={loadingClassName} />
+        {renderAppendContent('start')}
+        <Slottable>
+          {isLoading ? (
+            <span className={styles.buttonContent}>{children}</span>
+          ) : (
+            children
           )}
-      </button>
+        </Slottable>
+        {renderAppendContent('end')}
+      </Component>
     );
   }
 );
-
-const LoadingIcon = ({ loadingClassName }: { loadingClassName: string }) => {
-  return (
-    <div className={loadingClassName} data-testid="loading-icon">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
-};

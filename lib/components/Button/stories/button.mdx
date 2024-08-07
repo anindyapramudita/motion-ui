@@ -1,0 +1,218 @@
+import { Canvas, Meta, Controls, Unstyled } from '@storybook/blocks';
+import { Button } from '..';
+import * as ButtonStories from './button.stories';
+import { SendIcon } from "./send-icon"
+
+ 
+<Meta of={ButtonStories} />
+ 
+# Button 👇🏻
+
+A button is a box or text used to convey a call to action and to trigger user actions upon being clicked.
+
+## Variants 🎭
+
+The button has three available variants, which are: Contained (default), Outlined, and Ghost.
+
+<Unstyled>
+<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained">Contained Button</Button>
+<Button variant="outlined">Outlined Button</Button>
+<Button variant="ghost">Ghost Button</Button>
+</div>
+</Unstyled>
+
+
+```jsx
+<Button variant="contained">Contained Button</Button>
+<Button variant="outlined">Outlined Button</Button>
+<Button variant="ghost">Ghost Button</Button>
+```
+
+You can see here how each one of these variants behave with different states, such as disabled, and loading.
+
+### Contained
+Contained buttons are used to emphasize an action button, typically the primary action on a page. This variant is distinguished by the pop of color in the background.
+<Unstyled>
+<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained">Button</Button>
+<Button variant="contained" disabled>Disabled</Button>
+<Button variant="contained" isLoading>Loading</Button>
+</div>
+</Unstyled>
+
+```jsx
+<Button variant="contained">Button</Button>
+<Button variant="contained" disabled>Disabled</Button>
+<Button variant="contained" isLoading>Loading</Button>
+```
+
+### Outlined
+Outlined buttons provide a lighter emphasis, often serving as the secondary action on a page. This variant features a border and is less prominent than the contained button but more emphasized than the ghost button.
+
+<Unstyled>
+<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="outlined" color="secondary">Button</Button>
+<Button variant="outlined" color="secondary" disabled>Disabled</Button>
+<Button variant="outlined" color="secondary" isLoading>Loading</Button>
+</div>
+</Unstyled>
+
+```jsx
+<Button variant="outlined" color="secondary">Button</Button>
+<Button variant="outlined" color="secondary" disabled>Disabled</Button>
+<Button variant="outlined" color="secondary" isLoading>Loading</Button>
+```
+
+### Ghost
+Ghost buttons offer the lowest emphasis. They are typically used for actions with the least priority and can be combined with the `asChild` prop to render the button as a link or anchor.
+
+<Unstyled>
+<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="ghost">Button</Button>
+<Button variant="ghost" disabled>Disabled</Button>
+<Button variant="ghost" isLoading>Loading</Button>
+</div>
+</Unstyled>
+
+```jsx
+<Button variant="ghost">Button</Button>
+<Button variant="ghost" disabled>Disabled</Button>
+<Button variant="ghost" isLoading>Loading</Button>
+```
+
+## Sizes 🐘🐁
+
+The button also comes with three different sets of sizes, starting with Small, Medium (Default), and Large.
+
+<Unstyled>
+<div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12}}>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained" size="small">Small</Button>
+<Button variant="contained" size="medium">Medium</Button>
+<Button variant="contained" size="large">Large</Button>
+</div>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="outlined" size="small">Small</Button>
+<Button variant="outlined" size="medium">Medium</Button>
+<Button variant="outlined" size="large">Large</Button>
+</div>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="ghost" size="small">Small</Button>
+<Button variant="ghost" size="medium">Medium</Button>
+<Button variant="ghost" size="large">Large</Button>
+</div>
+</div>
+
+</Unstyled>
+
+
+```jsx
+<Button size="small">Small</Button>
+<Button size="medium">Medium</Button>
+<Button size="large">Large</Button>
+```
+## Colors 🎨
+
+Currently you can select between two colors, which are: Primary (default), and Secondary.
+
+<Unstyled>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained">Primary</Button>
+<Button variant="outlined" color="secondary">Secondary</Button>
+</div>
+</Unstyled>
+
+
+```jsx
+<Button variant="contained" color="primary">Primary</Button>
+<Button variant="outlined" color="secondary">Secondary</Button>
+```
+
+## As Child 👶🏻
+The `asChild` prop allows you to apply button styles to other elements, such as links or anchors. 
+
+Please note that you need to style the child to go along with the button style.
+
+<Unstyled>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained" color="secondary" asChild><a href="#links" style={{textDecoration: 'none', color: '#fff'}}>Link</a></Button>
+<Button variant="outlined" asChild><a href="#links" style={{textDecoration: 'none'}}>Link</a></Button>
+<Button variant="ghost" asChild><a href="#links" style={{textDecoration: 'none'}}>Link</a></Button>
+</div>
+</Unstyled>
+
+
+```jsx
+<Button variant="contained" color="secondary" asChild>
+    <a href="#links">Link</a>
+</Button>
+<Button variant="outlined" asChild>
+    <a href="#links">Link</a>
+</Button>
+<Button variant="ghost" asChild>
+    <a href="#links">Link</a>
+</Button>
+```
+
+## Props 🎬
+This button component allows you to handle clicks and accepts all the props of a standard `HTMLButtonElement`. This means you can pass any button props, such as `disabled`, `type`, `onMouseEnter`, `onFocus`, etc., and they will be applied to the underlying DOM element.
+
+### Example
+```jsx
+<Button variant="contained" 
+  onClick={()=>console.log("Hello World!")}
+  type="submit"
+  onMouseEnter={() => console.log('Mouse entered')}
+  onFocus={() => console.log('Focused')}
+  disabled
+>
+  Click me
+</Button>
+```
+
+
+## Buttons with Icons ✉️
+
+Buttons can also be enhanced with additional content using the `append` and `appendPosition` props, allowing customization with icons or other components.
+
+You can render the append position in two ways: Start (default) and End.
+
+<Unstyled>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained" append={<SendIcon/>} appendPosition="start">Send</Button>
+<Button variant="outlined" color="secondary" append={<SendIcon/>} appendPosition="end">Send</Button>
+</div>
+</Unstyled>
+
+```jsx
+<Button variant="contained" append={<SendIcon/>} appendPosition="start">Send</Button>
+<Button variant="outlined" color="secondary" append={<SendIcon/>} appendPosition="end">Send</Button>
+```
+
+### Loading
+
+When a button includes an append, the loading icon will adjust to match the position of the append.
+
+<Unstyled>
+<div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24}}>
+<Button variant="contained" append={<SendIcon/>} appendPosition="start" isLoading>Send</Button>
+<Button variant="outlined" color="secondary" append={<SendIcon/>} appendPosition="end" isLoading>Send</Button>
+</div>
+</Unstyled>
+
+```jsx
+<Button variant="contained" append={<SendIcon/>} appendPosition="start" isLoading>Send</Button>
+<Button variant="outlined" color="secondary" append={<SendIcon/>} appendPosition="end" isLoading>Send</Button>
+```
+
+## Theme 🚥
+
+For instructions on customizing the theme and colors of the button, please refer to the Theme documentation page.
+
+## Playground 🎡
+
+You can experiment with the Button component and adjust its props ans see what it would look like, using the interactive playground below:
+
+<Canvas of={ButtonStories.ContainedButton} />
+<Controls/>

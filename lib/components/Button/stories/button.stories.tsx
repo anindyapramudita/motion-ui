@@ -1,28 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from '..';
+import type { ButtonProps } from '../types';
 import { SendIcon } from './send-icon';
 
-const meta = {
-  title: 'Example/Button',
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   argTypes: {
     variant: {
-      description: 'Variant of the button',
       control: 'radio',
-      options: ['text', 'contained', 'outlined'],
+      options: ['ghost', 'contained', 'outlined'],
       table: {
         type: {
-          summary: 'text | contained | outlined',
+          summary: 'ghost | contained | outlined',
+        },
+      },
+    },
+    size: {
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
+      table: {
+        type: {
+          summary: 'small | medium | large',
         },
       },
     },
     color: {
-      description: 'Color of the button',
       control: 'radio',
       options: ['primary', 'secondary'],
       table: {
@@ -31,9 +38,7 @@ const meta = {
         },
       },
     },
-    startIcon: {
-      description:
-        'Icon that will be rendered before the text rendered in the button',
+    append: {
       control: 'object',
       table: {
         type: {
@@ -41,29 +46,16 @@ const meta = {
         },
       },
     },
-    endIcon: {
-      description:
-        'Icon that will be rendered after the text rendered in the button',
-      control: 'object',
-      table: {
-        type: {
-          summary: 'ReactNode',
-        },
-      },
-    },
-    loadingPosition: {
-      description: 'Position of the loading icon in the button',
+    appendPosition: {
       control: 'radio',
-      options: ['start', 'center', 'end'],
+      options: ['start', 'end'],
       table: {
-        category: 'Loading State',
         type: {
-          summary: 'start | center | end',
+          summary: 'start | end',
         },
       },
     },
     isLoading: {
-      description: 'Is the button in loading state',
       control: 'boolean',
       table: {
         category: 'Loading State',
@@ -73,7 +65,6 @@ const meta = {
       },
     },
     disabled: {
-      description: 'Is the button in being disabled',
       control: 'boolean',
       table: {
         category: 'Button inherit props',
@@ -86,7 +77,6 @@ const meta = {
       },
     },
     children: {
-      description: 'What is going to be rendered in the button',
       control: 'text',
       table: {
         category: 'Button inherit props',
@@ -96,7 +86,6 @@ const meta = {
       },
     },
     onClick: {
-      description: 'What is going to be triggered when you click the button',
       control: fn(),
       table: {
         category: 'Button inherit props',
@@ -110,7 +99,7 @@ const meta = {
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<ButtonProps>;
 
 export const ContainedButton: Story = {
   args: {
@@ -132,27 +121,16 @@ export const ButtonWithIcon: Story = {
     children: 'End Icon',
     color: 'primary',
     variant: 'contained',
-    endIcon: <SendIcon />,
+    append: <SendIcon />,
+    appendPosition: 'start',
   },
 };
 
-export const LoadingButtonWithIcon: Story = {
+export const ButtonWithAsChild: Story = {
   args: {
-    children: 'End Loading',
-    color: 'secondary',
-    variant: 'outlined',
-    endIcon: <SendIcon color="#F082AC" />,
-    isLoading: true,
-    loadingPosition: 'end',
-  },
-};
-
-export const CenterLoadingButton: Story = {
-  args: {
-    children: 'Center Loading',
-    color: 'secondary',
-    variant: 'outlined',
-    isLoading: true,
-    loadingPosition: 'center',
+    asChild: true,
+    children: <a>This is actually a link</a>,
+    color: 'primary',
+    variant: 'contained',
   },
 };

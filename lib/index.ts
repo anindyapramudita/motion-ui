@@ -1,2 +1,2 @@
 export { Button } from './components/Button';
-export { StyleTag } from './theme';
+export { RootStyle } from './theme';

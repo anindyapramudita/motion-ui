@@ -1,1 +1,1 @@
-export { StyleTag } from './style-tag';
+export { RootStyle } from './root-style';
